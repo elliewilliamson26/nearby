@@ -1,0 +1,13 @@
+def nearby(comparison_array,array_to_change):
+    
+    # Gives the location of the value in comparison array nearest to array_to_change
+    
+    end_size = np.size(array_to_change)
+    if end_size > 1:
+        changed_array = np.zeros(end_size,dtype = int)
+        for i in range(0,end_size):
+            changed_array[i] = int(np.abs(comparison_array - array_to_change[i]).argmin())
+    else:
+        changed_array = int(np.abs(comparison_array - array_to_change).argmin())
+        
+    return changed_array    
