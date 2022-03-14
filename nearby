@@ -3,11 +3,15 @@ def nearby(comparison_array,array_to_change):
     # Gives the location of the value in comparison array nearest to array_to_change
     
     end_size = np.size(array_to_change)
-    if end_size > 1:
+    if end_size > 1: # This means that the code can theoretically return a whole bunch of "closest values". 
+                    # I've never actually TESTED this bit, so it's a reasonable bet that it doesn't work. 
         changed_array = np.zeros(end_size,dtype = int)
         for i in range(0,end_size):
             changed_array[i] = int(np.abs(comparison_array - array_to_change[i]).argmin())
     else:
+        
+        # This is the code that actually identifies the best spot. 
         changed_array = int(np.abs(comparison_array - array_to_change).argmin())
+        
         
     return changed_array    
